@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Omapost is gestopt</title>
+
+  <meta name="description" content="Na ruim 10 jaar en meer dan een miljoen verstuurde kaartjes is Omapost gestopt. Bedankt voor alle mooie verbindingen tussen jong en oud.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Omapost is gestopt" />
+  <meta property="og:description" content="Na ruim 10 jaar en meer dan een miljoen verstuurde kaartjes is Omapost gestopt. Bedankt voor alle mooie verbindingen tussen jong en oud." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.omapost.nl/" />
+
+  <meta name="color-scheme" content="light" />
+
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+  <style>
+    /* ---------------------------------------------------------------
+       FONTS — same webfonts the Omapost app uses
+       --------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Asap';
+      font-display: swap;
+      unicode-range: U+000-5FF;
+      src: local('Asap'), url('assets/fonts/AsapRegular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Asap-Bold';
+      font-display: swap;
+      unicode-range: U+000-5FF;
+      src: local('Asap-Bold'), url('assets/fonts/AsapBold.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Asap-Italic';
+      font-display: swap;
+      unicode-range: U+000-5FF;
+      src: local('Asap-Italic'), url('assets/fonts/AsapItalic.woff2') format('woff2');
+    }
+
+    /* ---------------------------------------------------------------
+       THEME TOKENS — lifted from the app's theme/variables.scss
+       --------------------------------------------------------------- */
+    :root {
+      --text-primary: #525465;
+      --background-primary: #bfd6ed;
+      --background-secondary: #cfe6ed;
+      --brand-primary: #F6954D;
+      --border-grass: #7E7D49;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      /* Fill the viewport with sky even when the page is short */
+      background: var(--background-secondary);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Asap', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: var(--text-primary);
+      background: linear-gradient(var(--background-primary), var(--background-secondary));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------------------------------------------------------------
+       STAGE — full-height sky with the Omapost characters on the grass
+       --------------------------------------------------------------- */
+    .stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow: hidden;
+      border-bottom: 20px solid var(--border-grass);
+    }
+
+    /* LOGO STAMP */
+    .c-logo {
+      position: absolute;
+      top: -5px;
+      right: 48px;
+      width: 100px;
+      height: 130px;
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, .3));
+      z-index: 3;
+    }
+
+    .c-logo__image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top;
+    }
+
+    /* MESSAGE */
+    .header__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1 0 auto;
+      padding: 150px 7% 220px 7%;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .header__content h1 {
+      font-family: 'Asap-Bold', 'Asap', sans-serif;
+      font-size: 2.5rem;
+      font-weight: normal;
+      color: var(--text-primary);
+      margin: 0 0 10px 0;
+    }
+
+    .responsive-width {
+      max-width: 70%;
+      margin: 0 auto;
+    }
+
+    .responsive-width p {
+      font-family: 'Asap-Italic', 'Asap', sans-serif;
+      font-size: 1.38rem;
+      line-height: 1.9rem;
+      color: var(--text-primary);
+      margin: 0 0 1.6rem 0;
+    }
+
+    .responsive-width p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* CHARACTERS — positions copied from home.page.scss */
+    .header-image-1,
+    .header-image-2,
+    .header-image-3,
+    .header-image-4 {
+      position: absolute;
+      bottom: -1px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .header-image-1 {
+      left: 10%;
+      width: 7vw;
+      min-width: 4.38rem;
+      max-width: 8.80rem;
+    }
+
+    .header-image-2 {
+      right: 11%;
+      width: 8vw;
+      min-width: 5.0rem;
+      max-width: 9.69rem;
+    }
+
+    .header-image-3 {
+      left: 0;
+      width: 35vw;
+      min-width: 21.875rem;
+      max-width: 43.75rem;
+      z-index: 0;
+    }
+
+    .header-image-4 {
+      right: 4%;
+      width: 8vw;
+      min-width: 5.0rem;
+      max-width: 9.4rem;
+    }
+
+    /* ---------------------------------------------------------------
+       ANIMATIONS — the app's animated / fadeIn classes
+       --------------------------------------------------------------- */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+
+    .fadeIn {
+      animation-name: fadeIn;
+    }
+
+    .delay-005 {
+      animation-delay: 0.5s;
+    }
+
+    /* ---------------------------------------------------------------
+       RESPONSIVE — mirrors the app's breakpoints
+       --------------------------------------------------------------- */
+    @media screen and (max-width: 768px) {
+      .c-logo {
+        display: none;
+      }
+
+      .header__content {
+        padding: 60px 5% 200px 5%;
+      }
+
+      .header__content h1 {
+        font-size: 1.88rem;
+      }
+
+      .responsive-width {
+        max-width: 90%;
+      }
+
+      .responsive-width p {
+        font-size: 1.12rem;
+        line-height: 1.6rem;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .header-image-1 {
+        left: -2%;
+        min-width: 4.38rem;
+      }
+
+      .header-image-2 {
+        right: -2%;
+        min-width: 5.0rem;
+      }
+
+      .header-image-3,
+      .header-image-4 {
+        display: none;
+      }
+
+      /* Animations are disabled on phones in the app too */
+      .animated {
+        animation: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animated {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stage">
+
+    <!-- LOGO -->
+    <div class="c-logo">
+      <img class="c-logo__image" src="assets/img/logo--top-bordered.svg" alt="Omapost" />
+    </div>
+
+    <!-- MESSAGE -->
+    <main class="header__content">
+      <h1 class="animated fadeIn">Omapost is gestopt!</h1>
+
+      <div class="responsive-width animated fadeIn delay-005">
+        <p>Samen met jullie hebben we in ruim 10 jaar meer dan een miljoen kaartjes verstuurd en waardevolle
+          verbindingen tussen jong en oud gelegd.</p>
+
+        <p>Het was een prachtige tijd met uiteraard hoogte- en dieptepunten, en we zijn dankbaar voor alle mooie
+          manieren waarop we met zowel consumenten als bedrijven als non-profits samen hebben kunnen werken.</p>
+
+        <p>We willen je enorm bedanken voor het verschil dat we samen hebben gemaakt en alle kaarten die we
+          verstuurd hebben. Blijf kaarten versturen en nog beter: ga vaker naar de mensen waar je om geeft en
+          breng samen tijd door.</p>
+
+        <p>Liefs, Team Omapost</p>
+      </div>
+    </main>
+
+    <!-- CHARACTERS -->
+    <img class="header-image-1" src="assets/img/header-image-1.svg" alt="" aria-hidden="true" />
+    <img class="header-image-2" src="assets/img/header-image-2.svg" alt="" aria-hidden="true" />
+    <img class="header-image-3" src="assets/img/header-image-3.svg" alt="" aria-hidden="true" />
+    <img class="header-image-4" src="assets/img/header-image-4.svg" alt="" aria-hidden="true" />
+
+  </div>
+</body>
+
+</html>
