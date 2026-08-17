@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omapost is gestopt</title>
+
+  <!-- Every old Omapost URL lands here: the Ionic app's routes, the old
+       static pages, deep links to cards. Send them all to the homepage.
+       location.replace() rather than href, so the dead URL is not left in
+       the history and the back button cannot bounce the visitor back here. -->
+  <script>window.location.replace('/');</script>
+
+  <!-- Fallback when JavaScript is unavailable -->
+  <noscript><meta http-equiv="refresh" content="0; url=/"></noscript>
+
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+
+  <style>
+    /* Same sky as the homepage, so the hand-off is not a white flash */
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: linear-gradient(#bfd6ed, #cfe6ed);
+      color: #525465;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    a {
+      color: #525465;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Only ever seen if both the script and the meta refresh fail -->
+  <div class="fallback">
+    <p>Omapost is gestopt. Ga naar <a href="/">omapost.nl</a>.</p>
+  </div>
+</body>
+
+</html>
